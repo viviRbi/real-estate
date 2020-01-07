@@ -8,7 +8,8 @@ import Footer from "./component/footer/footer";
 import List from "./pages/list/list";
 import Detail from "./pages/detail/detail";
 import Login from "./constructor/login/login";
-import Save from "./pages/save/save";
+import Save from "./pages/save/save"; y
+
 
 class App extends Component {
   constructor(props) {
