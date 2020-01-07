@@ -16,7 +16,7 @@ function List(props) {
   return (
     <div>
       <h1>List {match.params.type}</h1>
-      {houses.map(data => (
+      {houseList.map(data => (
         <div key={data.adr}>
           <h1>{data.adr}</h1>
           <h2>{data.status}</h2>

@@ -6,6 +6,7 @@ import Detail from "../detail/detail";
 const Home = (props) => (
   <div>
     <h1>Home</h1>
+    {/* filter onChange */}
     <input />
     <Route path="/detail/:city" render={(props) => <Detail {...props} house={props.house} />} />
   </div>

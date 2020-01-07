@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Home from "./pages/home/home";
 import Header from "./component/header/header";
@@ -28,22 +28,23 @@ class App extends Component {
     if (typeText === "buy") { typeText = "for sale" }
     else if (typeText === "rent") { typeText = "for lease" }
     else if (typeText === "all") { typeText = "all" }
-    this.setState(() => ({ type: typeText }));
+    this.setState(() => ({ type: typeText }))
   }
+
 
   render() {
     return (
       <div>
         {/* Login is a pop up, do not required Route */}
         {this.state.type === "login" ? <Login /> : null}
-
+        {console.log(this.state.houses)}
         <Header navHandle={(e) => this.navHandle(e)} type={this.state.type} />
-
-        <Route exact path="/" render={(props) => <Home {...props} houses={this.state.houses} />} />
-        <Route path="/save" render={(props) => <Save {...props} houses={this.state.houses} />} />
-
-        <Route path="/list/:type" render={(props) => <List {...props} houses={this.state.houses} type={this.state.type} />} />
-        <Route path="/detail/:adr" render={(props) => <Detail {...props} houses={this.state.houses} />} />
+        <Switch>
+          <Route exact path="/" render={(props) => <Home {...props} houses={this.state.houses} />} />
+          <Route exact path="/save" render={(props) => <Save {...props} houses={this.state.houses} />} />
+          <Route exact path="/list/:type" render={(props) => <List {...props} houses={this.state.houses} type={this.state.type} />} />
+          <Route exact path="/detail/:adr" render={(props) => <Detail {...props} houses={this.state.houses} />} />
+        </Switch>
         <Footer />
       </div>
     );

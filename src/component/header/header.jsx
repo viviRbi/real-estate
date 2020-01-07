@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const Header = (props) => (
   <header className="header">
-    <ul onClick={(e) => props.navHandle(e)} type={props.type}>
+    <ul onClick={props.navHandle}>
       <section>
-        {console.log(props.type)}
-        <Link to={`/list/${props.type}`}><button>Buy</button></Link>
-        <Link to={`/list/${props.type}`}><button>Rent</button></Link>
-        <Link to={`/list/${props.type}`}><button>All</button></Link>
+        {/* {console.log(props.type)} */}
+        <Link to={`/list/for sale`}><button>Buy</button></Link>
+        <Link to={`/list/for lease`}><button>Rent</button></Link>
+        <Link to={`/list/all`}><button>All</button></Link>
       </section>
 
       <section>
